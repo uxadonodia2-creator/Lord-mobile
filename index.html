@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Criar conta | Piter Bot</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -16,8 +22,15 @@
 
         body {
             min-height: 100vh;
+
             background:
-                radial-gradient(circle at top, #2b0000 0%, #0d0d0d 45%, #050505 100%);
+                radial-gradient(
+                    circle at top,
+                    #2b0000 0%,
+                    #0d0d0d 45%,
+                    #050505 100%
+                );
+
             color: white;
 
             display: flex;
@@ -41,7 +54,9 @@
             font-size: 34px;
             letter-spacing: 2px;
             color: #ff2020;
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.35);
+
+            text-shadow:
+                0 0 20px rgba(255, 0, 0, 0.35);
         }
 
         .logo p {
@@ -52,7 +67,9 @@
 
         .card {
             background: rgba(18, 18, 18, 0.95);
+
             border: 1px solid #2d2d2d;
+
             border-radius: 16px;
 
             padding: 30px;
@@ -88,22 +105,29 @@
 
         input {
             width: 100%;
+
             padding: 14px;
 
             background: #0d0d0d;
+
             border: 1px solid #333;
+
             border-radius: 9px;
 
             color: white;
+
             font-size: 15px;
 
             outline: none;
+
             transition: 0.2s;
         }
 
         input:focus {
             border-color: #e50914;
-            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.12);
+
+            box-shadow:
+                0 0 0 3px rgba(229, 9, 20, 0.12);
         }
 
         input::placeholder {
@@ -119,20 +143,30 @@
         .terms {
             display: flex;
             align-items: flex-start;
+
             gap: 10px;
 
             margin: 20px 0;
 
             color: #888;
+
             font-size: 12px;
+
             line-height: 1.5;
         }
 
         .terms input {
             width: 16px;
             height: 16px;
+
             margin-top: 2px;
+
             accent-color: #e50914;
+        }
+
+        .terms label {
+            margin: 0;
+            color: #888;
         }
 
         .terms a {
@@ -144,32 +178,42 @@
             text-decoration: underline;
         }
 
-        button {
+        .register-button {
             width: 100%;
+
             padding: 15px;
 
             border: none;
+
             border-radius: 9px;
 
-            background: linear-gradient(135deg, #ff1a1a, #b00000);
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff1a1a,
+                    #b00000
+                );
+
             color: white;
 
             font-size: 16px;
+
             font-weight: bold;
 
             cursor: pointer;
 
             transition: 0.2s;
 
-            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.18);
+            box-shadow:
+                0 8px 25px rgba(255, 0, 0, 0.18);
         }
 
-        button:hover {
+        .register-button:hover {
             transform: translateY(-1px);
             filter: brightness(1.12);
         }
 
-        button:active {
+        .register-button:active {
             transform: translateY(0);
         }
 
@@ -177,39 +221,57 @@
             display: none;
 
             margin-top: 18px;
+
             padding: 12px;
 
             border-radius: 8px;
 
             text-align: center;
+
             font-size: 14px;
+
+            line-height: 1.4;
         }
 
         .message.error {
             display: block;
-            background: rgba(255, 0, 0, 0.08);
-            border: 1px solid rgba(255, 0, 0, 0.3);
+
+            background:
+                rgba(255, 0, 0, 0.08);
+
+            border:
+                1px solid rgba(255, 0, 0, 0.3);
+
             color: #ff6b6b;
         }
 
         .message.success {
             display: block;
-            background: rgba(0, 200, 100, 0.08);
-            border: 1px solid rgba(0, 200, 100, 0.3);
+
+            background:
+                rgba(0, 200, 100, 0.08);
+
+            border:
+                1px solid rgba(0, 200, 100, 0.3);
+
             color: #55e69a;
         }
 
         .login {
             text-align: center;
+
             margin-top: 22px;
 
             color: #777;
+
             font-size: 14px;
         }
 
         .login a {
             color: #ff2525;
+
             text-decoration: none;
+
             font-weight: bold;
         }
 
@@ -219,13 +281,16 @@
 
         .footer {
             text-align: center;
+
             margin-top: 20px;
 
             color: #555;
+
             font-size: 12px;
         }
 
         @media (max-width: 480px) {
+
             .card {
                 padding: 24px 20px;
             }
@@ -233,31 +298,52 @@
             .logo h1 {
                 font-size: 29px;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
+
     <main class="container">
 
+
         <div class="logo">
+
             <h1>PITER BOT</h1>
-            <p>Automação e gerenciamento</p>
+
+            <p>
+                Automação e gerenciamento
+            </p>
+
         </div>
+
+
 
         <section class="card">
 
+
             <h2>Criar sua conta</h2>
+
 
             <p class="subtitle">
                 Cadastre-se para acessar seu painel.
             </p>
 
+
+
             <form id="registerForm">
 
+
                 <div class="input-group">
-                    <label for="name">Nome</label>
+
+                    <label for="name">
+                        Nome
+                    </label>
 
                     <input
                         type="text"
@@ -267,10 +353,16 @@
                         autocomplete="name"
                         required
                     >
+
                 </div>
 
+
+
                 <div class="input-group">
-                    <label for="email">E-mail</label>
+
+                    <label for="email">
+                        E-mail
+                    </label>
 
                     <input
                         type="email"
@@ -280,10 +372,16 @@
                         autocomplete="email"
                         required
                     >
+
                 </div>
 
+
+
                 <div class="input-group">
-                    <label for="password">Senha</label>
+
+                    <label for="password">
+                        Senha
+                    </label>
 
                     <input
                         type="password"
@@ -297,9 +395,13 @@
                     <p class="password-info">
                         A senha deve ter pelo menos 8 caracteres.
                     </p>
+
                 </div>
 
+
+
                 <div class="input-group">
+
                     <label for="confirmPassword">
                         Confirmar senha
                     </label>
@@ -312,7 +414,10 @@
                         autocomplete="new-password"
                         required
                     >
+
                 </div>
+
+
 
                 <div class="terms">
 
@@ -323,126 +428,217 @@
                     >
 
                     <label for="terms">
-                        Eu concordo com os termos de uso e a
-                        política de privacidade.
+
+                        Eu concordo com os termos de uso
+                        e a política de privacidade.
+
                     </label>
 
                 </div>
 
-                <button type="submit">
+
+
+                <button
+                    type="submit"
+                    class="register-button"
+                >
+
                     CRIAR CONTA
+
                 </button>
 
-                <div id="message" class="message"></div>
+
+
+                <div
+                    id="message"
+                    class="message"
+                ></div>
+
 
             </form>
 
+
+
+            <!-- LINK PARA O LOGIN -->
+
             <div class="login">
+
                 Já possui uma conta?
-                <a href="#">Entrar</a>
+
+                <a href="login.html">
+                    Entrar
+                </a>
+
             </div>
+
 
         </section>
 
+
+
         <div class="footer">
-            © 2026 Piter Bot — Todos os direitos reservados.
+
+            © 2026 Piter Bot —
+            Todos os direitos reservados.
+
         </div>
+
 
     </main>
 
 
+
     <script>
 
-        const form = document.getElementById("registerForm");
-        const message = document.getElementById("message");
 
-        form.addEventListener("submit", function(event) {
-
-            event.preventDefault();
-
-            const name =
-                document.getElementById("name").value.trim();
-
-            const email =
-                document.getElementById("email").value.trim();
-
-            const password =
-                document.getElementById("password").value;
-
-            const confirmPassword =
-                document.getElementById("confirmPassword").value;
-
-            const terms =
-                document.getElementById("terms").checked;
+        const form =
+            document.getElementById("registerForm");
 
 
-            message.className = "message";
-            message.textContent = "";
+        const message =
+            document.getElementById("message");
 
 
-            if (name.length < 2) {
 
-                showError(
-                    "Digite um nome válido."
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                    .getElementById("name")
+                    .value
+                    .trim();
+
+
+                const email =
+                    document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+                const password =
+                    document
+                    .getElementById("password")
+                    .value;
+
+
+                const confirmPassword =
+                    document
+                    .getElementById("confirmPassword")
+                    .value;
+
+
+                const terms =
+                    document
+                    .getElementById("terms")
+                    .checked;
+
+
+
+                message.className =
+                    "message";
+
+
+                message.textContent =
+                    "";
+
+
+
+                if (name.length < 2) {
+
+                    showError(
+                        "Digite um nome válido."
+                    );
+
+                    return;
+                }
+
+
+
+                if (!email.includes("@")) {
+
+                    showError(
+                        "Digite um e-mail válido."
+                    );
+
+                    return;
+                }
+
+
+
+                if (password.length < 8) {
+
+                    showError(
+                        "A senha precisa ter pelo menos 8 caracteres."
+                    );
+
+                    return;
+                }
+
+
+
+                if (password !== confirmPassword) {
+
+                    showError(
+                        "As senhas não são iguais."
+                    );
+
+                    return;
+                }
+
+
+
+                if (!terms) {
+
+                    showError(
+                        "Você precisa aceitar os termos de uso."
+                    );
+
+                    return;
+                }
+
+
+
+                showSuccess(
+                    "Cadastro validado! A conta será criada quando o banco de dados estiver conectado."
                 );
 
-                return;
             }
+        );
 
-
-            if (password.length < 8) {
-
-                showError(
-                    "A senha precisa ter pelo menos 8 caracteres."
-                );
-
-                return;
-            }
-
-
-            if (password !== confirmPassword) {
-
-                showError(
-                    "As senhas não são iguais."
-                );
-
-                return;
-            }
-
-
-            if (!terms) {
-
-                showError(
-                    "Você precisa aceitar os termos de uso."
-                );
-
-                return;
-            }
-
-
-            showSuccess(
-                "Cadastro validado! O banco de dados será conectado na próxima etapa."
-            );
-
-        });
 
 
         function showError(text) {
 
-            message.className = "message error";
-            message.textContent = text;
+            message.className =
+                "message error";
+
+            message.textContent =
+                text;
 
         }
+
 
 
         function showSuccess(text) {
 
-            message.className = "message success";
-            message.textContent = text;
+            message.className =
+                "message success";
+
+            message.textContent =
+                text;
 
         }
 
+
     </script>
 
+
 </body>
-  </html>
+
+</html>
