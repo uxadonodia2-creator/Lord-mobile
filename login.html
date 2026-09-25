@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Entrar | Piter Bot</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #2b0000 0%,
+                    #0d0d0d 45%,
+                    #050505 100%
+                );
+
+            color: white;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 20px;
+        }
+
+
+        .container {
+
+            width: 100%;
+
+            max-width: 430px;
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .logo h1 {
+
+            font-size: 34px;
+
+            letter-spacing: 2px;
+
+            color: #ff2020;
+
+            text-shadow:
+                0 0 20px rgba(255, 0, 0, 0.35);
+        }
+
+
+        .logo p {
+
+            margin-top: 8px;
+
+            color: #999;
+
+            font-size: 14px;
+        }
+
+
+        .card {
+
+            background:
+                rgba(18, 18, 18, 0.95);
+
+            border:
+                1px solid #2d2d2d;
+
+            border-radius: 16px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.6),
+                0 0 40px rgba(255, 0, 0, 0.06);
+        }
+
+
+        .card h2 {
+
+            text-align: center;
+
+            margin-bottom: 8px;
+
+            font-size: 24px;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #888;
+
+            font-size: 14px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .input-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #ddd;
+
+            font-size: 14px;
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 14px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #333;
+
+            border-radius: 9px;
+
+            color: white;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.2s;
+        }
+
+
+        input:focus {
+
+            border-color: #e50914;
+
+            box-shadow:
+                0 0 0 3px rgba(229, 9, 20, 0.12);
+        }
+
+
+        input::placeholder {
+
+            color: #555;
+        }
+
+
+        .password-box {
+
+            position: relative;
+        }
+
+
+        .password-box input {
+
+            padding-right: 85px;
+        }
+
+
+        .show-password {
+
+            position: absolute;
+
+            right: 12px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: transparent;
+
+            border: none;
+
+            color: #aaa;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            width: auto;
+
+            padding: 5px;
+
+            box-shadow: none;
+        }
+
+
+        .show-password:hover {
+
+            color: #ff2525;
+
+            filter: none;
+
+            transform:
+                translateY(-50%);
+        }
+
+
+        .options {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 5px;
+
+            margin-bottom: 22px;
+
+            font-size: 13px;
+        }
+
+
+        .remember {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color: #888;
+        }
+
+
+        .remember input {
+
+            width: 15px;
+
+            height: 15px;
+
+            accent-color: #e50914;
+        }
+
+
+        .forgot {
+
+            color: #ff2525;
+
+            text-decoration: none;
+        }
+
+
+        .forgot:hover {
+
+            text-decoration: underline;
+        }
+
+
+        .login-button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff1a1a,
+                    #b00000
+                );
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+            box-shadow:
+                0 8px 25px rgba(255, 0, 0, 0.18);
+        }
+
+
+        .login-button:hover {
+
+            transform: translateY(-1px);
+
+            filter: brightness(1.12);
+        }
+
+
+        .login-button:active {
+
+            transform: translateY(0);
+        }
+
+
+        .message {
+
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            line-height: 1.4;
+        }
+
+
+        .message.error {
+
+            display: block;
+
+            background:
+                rgba(255, 0, 0, 0.08);
+
+            border:
+                1px solid rgba(255, 0, 0, 0.3);
+
+            color: #ff6b6b;
+        }
+
+
+        .message.success {
+
+            display: block;
+
+            background:
+                rgba(0, 200, 100, 0.08);
+
+            border:
+                1px solid rgba(0, 200, 100, 0.3);
+
+            color: #55e69a;
+        }
+
+
+        .register {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        .register a {
+
+            color: #ff2525;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        .register a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+
+        @media (max-width: 480px) {
+
+            .card {
+
+                padding: 24px 20px;
+            }
+
+
+            .logo h1 {
+
+                font-size: 29px;
+            }
+
+
+            .options {
+
+                font-size: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="container">
+
+
+        <div class="logo">
+
+            <h1>PITER BOT</h1>
+
+            <p>
+                Automação e gerenciamento
+            </p>
+
+        </div>
+
+
+
+        <section class="card">
+
+
+            <h2>Entrar</h2>
+
+
+            <p class="subtitle">
+
+                Acesse sua conta para continuar.
+
+            </p>
+
+
+
+            <form id="loginForm">
+
+
+                <div class="input-group">
+
+                    <label for="email">
+
+                        E-mail
+
+                    </label>
+
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="seuemail@email.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label for="password">
+
+                        Senha
+
+                    </label>
+
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Digite sua senha"
+                            autocomplete="current-password"
+                            required
+                        >
+
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="showPassword"
+                        >
+                            Mostrar
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="options">
+
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                        >
+
+                        Lembrar de mim
+
+                    </label>
+
+
+                    <a
+                        href="#"
+                        class="forgot"
+                        id="forgotPassword"
+                    >
+                        Esqueci minha senha
+                    </a>
+
+
+                </div>
+
+
+
+                <button
+                    type="submit"
+                    class="login-button"
+                >
+
+                    ENTRAR
+
+                </button>
+
+
+
+                <div
+                    id="message"
+                    class="message"
+                ></div>
+
+
+            </form>
+
+
+
+            <div class="register">
+
+                Ainda não possui uma conta?
+
+                <a href="index.html">
+
+                    Criar conta
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+
+        <div class="footer">
+
+            © 2026 Piter Bot — Todos os direitos reservados.
+
+        </div>
+
+
+    </main>
+
+
+
+    <script>
+
+
+        const form =
+            document.getElementById("loginForm");
+
+
+        const email =
+            document.getElementById("email");
+
+
+        const password =
+            document.getElementById("password");
+
+
+        const message =
+            document.getElementById("message");
+
+
+        const showPassword =
+            document.getElementById("showPassword");
+
+
+        const forgotPassword =
+            document.getElementById("forgotPassword");
+
+
+
+        /*
+         * MOSTRAR / OCULTAR SENHA
+         */
+
+        showPassword.addEventListener(
+            "click",
+            function() {
+
+                if (password.type === "password") {
+
+                    password.type = "text";
+
+                    showPassword.textContent =
+                        "Ocultar";
+
+                } else {
+
+                    password.type = "password";
+
+                    showPassword.textContent =
+                        "Mostrar";
+                }
+
+            }
+        );
+
+
+
+        /*
+         * LOGIN
+         */
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const emailValue =
+                    email.value.trim();
+
+
+                const passwordValue =
+                    password.value;
+
+
+                message.className =
+                    "message";
+
+
+                message.textContent =
+                    "";
+
+
+
+                if (!emailValue) {
+
+                    showError(
+                        "Digite seu e-mail."
+                    );
+
+                    return;
+                }
+
+
+
+                if (!emailValue.includes("@")) {
+
+                    showError(
+                        "Digite um e-mail válido."
+                    );
+
+                    return;
+                }
+
+
+
+                if (!passwordValue) {
+
+                    showError(
+                        "Digite sua senha."
+                    );
+
+                    return;
+                }
+
+
+
+                if (passwordValue.length < 8) {
+
+                    showError(
+                        "A senha precisa ter pelo menos 8 caracteres."
+                    );
+
+                    return;
+                }
+
+
+
+                /*
+                 * Nesta etapa o sistema ainda
+                 * não possui banco de dados.
+                 */
+
+                showSuccess(
+                    "Login validado! A autenticação real será conectada na próxima etapa."
+                );
+
+            }
+        );
+
+
+
+        /*
+         * ESQUECI MINHA SENHA
+         */
+
+        forgotPassword.addEventListener(
+            "click",
+            function(event) {
+
+                event.preventDefault();
+
+
+                showError(
+                    "A recuperação de senha será adicionada quando conectarmos o banco de dados."
+                );
+
+            }
+        );
+
+
+
+        /*
+         * MENSAGEM DE ERRO
+         */
+
+        function showError(text) {
+
+            message.className =
+                "message error";
+
+            message.textContent =
+                text;
+        }
+
+
+
+        /*
+         * MENSAGEM DE SUCESSO
+         */
+
+        function showSuccess(text) {
+
+            message.className =
+                "message success";
+
+            message.textContent =
+                text;
+        }
+
+
+    </script>
+
+
+</body>
+
+  </html>
